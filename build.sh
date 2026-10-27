@@ -1,16 +1,16 @@
 #!/bin/bash
-# Builds ComprimiNote.app from the source, on your own Mac.
+# Builds FoldNotes.app from the source, on your own Mac.
 # Needs only the Xcode command line tools (xcode-select --install).
-# Usage: ./build.sh   →   creates build/ComprimiNote.app
+# Usage: ./build.sh   →   creates build/FoldNotes.app
 set -euo pipefail
 cd "$(dirname "$0")"
 
-APP=build/ComprimiNote.app
+APP=build/FoldNotes.app
 rm -rf build
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 
 echo "→ Compiling…"
-swiftc -O ComprimiNote.swift -o "$APP/Contents/MacOS/ComprimiNote"
+swiftc -O FoldNotes.swift -o "$APP/Contents/MacOS/FoldNotes"
 cp Info.plist "$APP/Contents/Info.plist"
 
 # Icon (optional): AppIcon.png, square, ideally 1024×1024

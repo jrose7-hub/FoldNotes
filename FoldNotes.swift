@@ -1,11 +1,11 @@
-// ComprimiNote: collapses the folders in the Notes sidebar when Notes opens.
+// FoldNotes: collapses the folders in the Notes sidebar when Notes opens.
 //
 // When it acts: only when Notes opens (macOS event, no polling, no timer).
 // What it does: in the Notes window it looks only at the sidebar; it keeps the accounts
 // (iCloud, Sul mio Mac…) open and collapses folders and subfolders by pressing their arrows,
 // just like a click, so Notes stays in sync (no flicker on rename).
 // It doesn't read the notes' content or the folder names.
-// It writes a line to ~/Library/Application Support/ComprimiNote/log.txt. No network, no shell.
+// It writes a line to ~/Library/Application Support/FoldNotes/log.txt. No network, no shell.
 // It only acts on the real Notes, signed by Apple.
 
 import Cocoa
@@ -18,7 +18,7 @@ let livelloMinimo = 1 // 0 = accounts (kept open), 1 and up = folders (collapsed
 // MARK: - Log
 
 let cartellaLog = FileManager.default.homeDirectoryForCurrentUser
-	.appendingPathComponent("Library/Application Support/ComprimiNote")
+	.appendingPathComponent("Library/Application Support/FoldNotes")
 
 func scrivi(_ testo: String) {
 	let f = DateFormatter()
